@@ -50,3 +50,41 @@ export const TESTIMONIALS = [
     avatar: "https://placehold.co/100x100/000000/FFFFFF?text=PJ",
   },
 ];
+
+export const FAQS = [
+  {
+    question: "What is AI Invoice Generator?",
+    answer:
+      "AI Invoice Generator is a smart tool that helps freelancers and businesses create professional invoices instantly using AI. Just enter client details and let the system handle formatting and calculations.",
+  },
+  {
+    question: "Do I need design skills to create invoices?",
+    answer:
+      "Not at all. The app provides modern, ready-to-use templates that you can easily customize with your logo, brand colors, and layout preferences.",
+  },
+  {
+    question: "Can I send invoices directly to clients?",
+    answer:
+      "Yes! You can email invoices directly from the app or download them as PDFs to share manually. Both methods are secure and reliable.",
+  },
+  {
+    question: "How do payment reminders work?",
+    answer:
+      "The system automatically tracks invoice status and sends smart reminders to clients for pending payments, so you don’t have to follow up manually.",
+  },
+  {
+    question: "Is my data secure?",
+    answer:
+      "Absolutely. We use JWT authentication and encrypted storage to ensure your invoices and client details remain private and secure.",
+  },
+  {
+    question: "Can I track paid and pending invoices?",
+    answer:
+      "Yes, the AI-powered dashboard gives you real-time insights into pending, paid, and overdue invoices so you always know your financial status.",
+  },
+  {
+    question: "Who can use AI Invoice Generator?",
+    answer:
+      "Freelancers, small businesses, consultants, and agencies can all benefit from the tool. If you need to create, send, or track invoices, this app is designed for you.",
+  },
+];
