@@ -9,6 +9,7 @@ const LandingPage = () => {
       <main className="mb-[100vh]">
         <Hero />
         <Features />
+        <Testimonials />
       </main>
     </div>
   );
