@@ -26,3 +26,27 @@ export const FEATURES = [
       "Organize, edit, and track all invoices in one place with a simple and secure management system.",
   },
 ];
+
+export const TESTIMONIALS = [
+  {
+    quote:
+      "This app saved me hours of manual work. I can now create and send invoices in minutes!",
+    author: "Jane Doe",
+    title: "Freelance Designer",
+    avatar: "https://placehold.co/100x100/000000/FFFFFF?text=JD",
+  },
+  {
+    quote:
+      "The best invoicing tool I’ve ever used. Clean, simple, and powerful.",
+    author: "John Smith",
+    title: "Small Business Owner",
+    avatar: "https://placehold.co/100x100/000000/FFFFFF?text=JS",
+  },
+  {
+    quote:
+      "I love the dashboard and analytics. It helps me stay on top of my finances easily.",
+    author: "Peter Jones",
+    title: "Consultant",
+    avatar: "https://placehold.co/100x100/000000/FFFFFF?text=PJ",
+  },
+];

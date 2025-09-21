@@ -1,6 +1,7 @@
 import Header from "../../components/landing/Header";
 import Features from "./Features";
 import Hero from "./Hero";
+import Testimonials from "./Testimonials";
 
 const LandingPage = () => {
   return (
