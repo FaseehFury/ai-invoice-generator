@@ -1,4 +1,5 @@
 import Header from "../../components/landing/Header";
+import Faqs from "./Faqs";
 import Features from "./Features";
 import Hero from "./Hero";
 import Testimonials from "./Testimonials";
@@ -11,6 +12,7 @@ const LandingPage = () => {
         <Hero />
         <Features />
         <Testimonials />
+        <Faqs />
       </main>
     </div>
   );
