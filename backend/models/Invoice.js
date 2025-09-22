@@ -4,7 +4,7 @@ const itemSchema = new mongoose.Schema({
   name: { type: String, required: true },
   quantity: { type: Number, required: true },
   unitPrice: { type: Number, required: true },
-  totalPercentage: { type: Number, required: true },
+  taxPercent: { type: Number, default: 0 },
   total: { type: Number, required: true },
 });
 
