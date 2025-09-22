@@ -14,9 +14,10 @@ import InvoiceDetails from "./pages/Invoices/InvoiceDetail";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
 const App = () => {
   return (
-    <div>
+    <AuthProvider>
       <Router>
         <Routes>
           {/* Public Routes */}
@@ -39,7 +40,7 @@ const App = () => {
       </Router>
 
       <Toaster toastOptions={{ className: "", style: { fontSize: "13px" } }} />
-    </div>
+    </AuthProvider>
   );
 };
 
