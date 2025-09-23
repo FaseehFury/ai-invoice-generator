@@ -126,9 +126,9 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-8">
+      {/* Header */}
       <div className="w-full max-w-sm">
-        {/* Header */}
         <div className="text-center mb-8">
           <div className="w-12 h-12 bg-gradient-to-r from-blue-950 to-blue-900 rounded-xl mx-auto mb-6 flex items-center justify-center">
             <FileText className="w-6 h-6 text-white" />
@@ -150,7 +150,7 @@ const Login = () => {
               Email
             </label>
             <div className="relative">
-              <Mail className="absolute left-4 top-1/2 transform -translate-y-1 text-gray-400 w-5 h-5" />
+              <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
 
               <input
                 type="email"
