@@ -113,15 +113,15 @@ const getDashboardSummary = async (req, res) => {
   try {
     const invoices = await Invoice.find({ user: req.user.id });
     if (invoices.length === 0) {
-      return res
-        .status(200)
-        .json({ insights: "No invoice data availabel to generate insights." });
+      return res.status(200).json({
+        insights: ["No invoice data available to generate insights."],
+      });
     }
 
     //process and summarize data
     const totalInvoices = invoices.length;
     const paidInvoices = invoices.filter((i) => i.status === "paid");
-    const unpaidInvoices = invoices.filter((i) => i.status === "Unpaid");
+    const unpaidInvoices = invoices.filter((i) => i.status !== "paid");
     const totalRevenue = paidInvoices.reduce((acc, inv) => acc + inv.total, 0);
     const totalOutstanding = unpaidInvoices.reduce(
       (acc, inv) => acc + inv.total,

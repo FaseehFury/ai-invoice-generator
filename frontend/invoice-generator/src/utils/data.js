@@ -1,4 +1,12 @@
-import { BarChart, FileText, Mail, Sparkles } from "lucide-react";
+import {
+  BarChart,
+  FileText,
+  LayoutDashboard,
+  Mail,
+  Plus,
+  Sparkles,
+  Users,
+} from "lucide-react";
 
 export const FEATURES = [
   {
@@ -87,4 +95,11 @@ export const FAQS = [
     answer:
       "Freelancers, small businesses, consultants, and agencies can all benefit from the tool. If you need to create, send, or track invoices, this app is designed for you.",
   },
+];
+
+export const NAVIGATION_MENU = [
+  { id: "dashboard", name: "Dashboard", icon: LayoutDashboard },
+  { id: "invoices", name: "Invoices", icon: FileText },
+  { id: "invoices/new", name: "Create Invoice", icon: Plus },
+  { id: "profile", name: "Profile", icon: Users },
 ];

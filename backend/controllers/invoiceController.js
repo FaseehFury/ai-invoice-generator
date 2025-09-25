@@ -60,7 +60,10 @@ exports.createInvoice = async (req, res) => {
 
 exports.getInvoices = async (req, res) => {
   try {
-    const invoices = await Invoice.find().populate("user", "name email");
+    const invoices = await Invoice.find({ user: req.user.id }).populate(
+      "user",
+      "name email"
+    );
     res.json(invoices);
   } catch (error) {
     res
@@ -80,6 +83,11 @@ exports.getInvoiceById = async (req, res) => {
       "name email"
     );
     if (!invoice) return res.status(400).json({ message: "no invoice found" });
+
+    //Check if the invoice belongs to this user
+    if (invoice.user.toString() !== req.user.id) {
+      return res.status(401).json({ message: "Not authorized" });
+    }
     res.json(invoice);
   } catch (error) {
     res
@@ -106,15 +114,14 @@ exports.updateInvoice = async (req, res) => {
       status,
     } = req.body;
 
-    //recalculate totals if items changes
     let subTotal = 0;
     let taxTotal = 0;
 
     if (items && items.length > 0) {
       items.forEach((item) => {
-        subTotal += item.unitPrice * item.quantity;
-        taxTotal +=
-          (item.unitPrice * item.quantity * (item.taxPercent || 0)) / 100;
+        const itemTotal = (item.unitPrice || 0) * (item.quantity || 0);
+        subTotal += itemTotal;
+        taxTotal += itemTotal * ((item.taxPercent || 0) / 100);
       });
 
       const total = subTotal + taxTotal;

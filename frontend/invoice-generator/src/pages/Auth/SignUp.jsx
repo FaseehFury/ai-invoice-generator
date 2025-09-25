@@ -45,8 +45,6 @@ const SignUp = () => {
     confirmPassword: false,
   });
 
-  const [agreed, setAgreed] = useState(false);
-
   const validateName = (name) => {
     if (!name) return "Name is required";
     if (name.length < 2) return "Name must be at least 2 characters";
@@ -140,10 +138,6 @@ const SignUp = () => {
       formData.confirmPassword,
       formData.password
     );
-    if (!agreed) {
-      setError("You must agree to the Terms and Privacy Policy.");
-      return;
-    }
 
     if (nameError || emailError || passwordError || confirmPasswordError) {
       setFieldErrors({
@@ -385,8 +379,6 @@ const SignUp = () => {
               id="terms"
               className="w-4 h-4 text-black border-gray-300 focus:ring-black mt-1"
               required
-              checked={agreed}
-              onChange={(e) => setAgreed(e.target.value)}
             />
             <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
               I agree to the{" "}
@@ -404,7 +396,7 @@ const SignUp = () => {
 
           <button
             onClick={handleSubmit}
-            disabled={isLoading || !isFormValid() || !agreed}
+            disabled={isLoading || !isFormValid()}
             className="w-full bg-gradient-to-r from-blue-950 to-blue-900 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-800 disabled:bg-gray-300 disabled::cursor-not-allowed transition-colors flex items-center justify-center group"
           >
             {isLoading ? (

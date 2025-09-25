@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import HERO_IMAGE from "../../assets/hero-img.webp";
+import { useAuth } from "../../context/AuthContext";
 
 const Hero = () => {
-  const isAuthenticated = false; // Replace with actual authentication logic
+  const { isAuthenticated } = useAuth(); // Replace with actual authentication logic
   return (
     <section className="relative bg-[#fbfbfb] overflow-hidden">
       <div className="absolute inset-0 bg-grid-white/[0.5] bg-[size:60px_60px]"></div>

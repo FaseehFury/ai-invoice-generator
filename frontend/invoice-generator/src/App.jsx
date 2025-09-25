@@ -9,7 +9,7 @@ import SignUp from "./pages/Auth/SignUp";
 import Login from "./pages/Auth/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import AllInvoices from "./pages/Invoices/AllInvoices";
-import CreateInvoice from "./pages/Invoices/CreateInvoices";
+import CreateInvoice from "./pages/Invoices/CreateInvoice";
 import InvoiceDetails from "./pages/Invoices/InvoiceDetail";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import { Toaster } from "react-hot-toast";
