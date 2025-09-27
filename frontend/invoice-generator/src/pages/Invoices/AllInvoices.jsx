@@ -27,7 +27,7 @@ const AllInvoices = () => {
   const [statusFilter, setStatusFilter] = useState("All");
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [isReminderModalOpen, setIsReminderModalOpen] = useState(false);
-  const [selectedInvoiceId, setSelectedInoviceId] = useState(null);
+  const [selectedInvoiceId, setSelectedInvoiceId] = useState(null);
 
   const navigate = useNavigate();
 
@@ -64,6 +64,7 @@ const AllInvoices = () => {
   };
 
   const handleStatusChange = async (invoice) => {
+    console.log("Clicked invoice:", invoice);
     setStatusChangeLoading(invoice._id);
     try {
       const newStatus = invoice.status === "Paid" ? "Unpaid" : "Paid";
@@ -85,7 +86,7 @@ const AllInvoices = () => {
   };
 
   const handleOpenReminderModal = (invoiceId) => {
-    setSelectedInoviceId(invoiceId);
+    setSelectedInvoiceId(invoiceId);
     setIsReminderModalOpen(true);
   };
 
@@ -122,6 +123,7 @@ const AllInvoices = () => {
       <ReminderModal
         isOpen={isReminderModalOpen}
         onClose={() => setIsReminderModalOpen(false)}
+        invoiceId={selectedInvoiceId}
       />
 
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -226,7 +228,7 @@ const AllInvoices = () => {
                   <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
@@ -279,7 +281,7 @@ const AllInvoices = () => {
                       >
                         <Button
                           size="small"
-                          variant="secondry"
+                          variant="secondary"
                           onClick={() => handleStatusChange(invoice)}
                           isLoading={statusChangeLoading === invoice._id}
                         >
@@ -301,7 +303,7 @@ const AllInvoices = () => {
                         >
                           <Trash2 className="w-4 h-4 text-red-500" />
                         </Button>
-                        {invoice.status !== "paid" && (
+                        {invoice.status !== "Paid" && (
                           <Button
                             size="small"
                             variant="ghost"

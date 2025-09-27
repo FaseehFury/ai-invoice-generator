@@ -39,13 +39,13 @@ const parseInvoiceFromText = async (req, res) => {
 `;
 
     const response = await ai.models.generateContent({
-      model: "gemini-1.5-flash-latest",
+      model: "gemini-2.5-flash",
       contents: prompt,
     });
 
     const responseText = response.text;
 
-    if (typeof response.text !== "string") {
+    if (typeof responseText !== "string") {
       if (typeof response.text === "function") {
         responseText = response.text();
       } else {
@@ -95,7 +95,7 @@ Use the following details to personalize the email:
 `;
 
     const respone = ai.models.generateContent({
-      model: "gemini-1.5-flash-latest",
+      model: "gemini-2.5-flash",
       contents: prompt,
     });
 
@@ -149,7 +149,7 @@ const getDashboardSummary = async (req, res) => {
     `;
 
     const prompt = `
-    You are a frinedly and insightful finanical analyst for a small bussiness owner.
+    You are a friendly and insightful finanical analyst for a small bussiness owner.
     Based on the following summary of their invoice data, provie 2-3 concise and actionable insights.
     Each insight should be a short string in a JSON array.
     The insights should be encouraging and helpful.Do not repeat the data.
@@ -163,7 +163,7 @@ const getDashboardSummary = async (req, res) => {
     `;
 
     const response = await ai.models.generateContent({
-      model: "gemini-1.5-flash-latest",
+      model: "gemini-2.5-flash",
       contents: prompt,
     });
 
