@@ -122,7 +122,7 @@ const ProfilePage = () => {
               />
               <InputField
                 label="Phone"
-                name="name"
+                name="phone"
                 icon={Phone}
                 type="tel"
                 value={formData.phone}

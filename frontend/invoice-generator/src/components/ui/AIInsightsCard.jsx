@@ -13,7 +13,7 @@ const AIInsightsCard = () => {
         const response = await axiosInstance.get(
           API_PATHS.AI.GET_DASHBOARD_SUMMARY
         );
-        console.log(typeof response.data.insight);
+
         setInsights(response.data.insights || []);
       } catch (error) {
         console.error("Failed to fetch AI insights", error);

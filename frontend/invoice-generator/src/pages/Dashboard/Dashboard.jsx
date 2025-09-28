@@ -27,10 +27,10 @@ const Dashboard = () => {
         const Invoices = response.data;
         const totalInvoices = Invoices.length;
         const totalPaid = Invoices.filter(
-          (inv) => inv.status === "paid"
+          (inv) => inv.status === "Paid"
         ).reduce((acc, inv) => acc + inv.total, 0);
         const totalUnpaid = Invoices.filter(
-          (inv) => inv.status !== "paid"
+          (inv) => inv.status !== "Paid"
         ).reduce((acc, inv) => acc + inv.total, 0);
 
         setStats({ totalInvoices, totalPaid, totalUnpaid });
@@ -176,8 +176,8 @@ const Dashboard = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span
-                        className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
-                          invoice.status === "paid"
+                        className={`inline-flex items-center px-2.5 py-1.5 rounded-full text-xs font-medium ${
+                          invoice.status === "Paid"
                             ? "bg-emerald-100 text-emerald-800"
                             : invoice.status === "Pending"
                             ? "bg-amber-100 text-amber-800"

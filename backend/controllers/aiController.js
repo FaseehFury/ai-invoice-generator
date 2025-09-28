@@ -94,12 +94,12 @@ Use the following details to personalize the email:
  The tone should be friendly but clear. Keep it concise. Start the email with "Subject".
 `;
 
-    const respone = ai.models.generateContent({
+    const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: prompt,
     });
 
-    res.status(200).json({ reminderText: (await respone).text });
+    res.status(200).json({ reminderText: (await response).text });
   } catch (error) {
     console.error("Error generating reminder email with AI", error);
     res.status(500).json({
@@ -120,15 +120,15 @@ const getDashboardSummary = async (req, res) => {
 
     //process and summarize data
     const totalInvoices = invoices.length;
-    const paidInvoices = invoices.filter((i) => i.status === "paid");
-    const unpaidInvoices = invoices.filter((i) => i.status !== "paid");
+    const paidInvoices = invoices.filter((i) => i.status === "Paid");
+    const unpaidInvoices = invoices.filter((i) => i.status !== "Paid");
     const totalRevenue = paidInvoices.reduce((acc, inv) => acc + inv.total, 0);
     const totalOutstanding = unpaidInvoices.reduce(
       (acc, inv) => acc + inv.total,
       0
     );
 
-    const dataSummary = `
+    const dataSummary = ` 
     -Total number of invoices: ${totalInvoices}
     -Total paid invoices: ${paidInvoices.length}
     -Total unpaid/pending invoices: ${unpaidInvoices.length}
@@ -159,7 +159,7 @@ const getDashboardSummary = async (req, res) => {
     ${dataSummary}
 
     Return your response as a valid JSON object with a single key "insights" which is an array of a strings.
-    Example format: {"insights":("Your revenue is looking strong this month!", You have 5 overdue invoices. Conside sending reminders to get paid faster.") }
+    Example format: {"insights":["Your revenue is looking strong this month!", "You have 5 overdue invoices. Conside sending reminders to get paid faster."] }
     `;
 
     const response = await ai.models.generateContent({
